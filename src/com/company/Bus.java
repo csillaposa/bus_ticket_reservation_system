@@ -8,14 +8,14 @@ public class Bus {
     Passenger[][] rightSide = new Passenger[2][20];
 
     //instance variables for place of departure and destination:
-    private String placeOfDeparture;
+    private String departure;
     private String destination;
 
     //constructor for the instance variables and arrays
-    public Bus(Passenger[][] leftSide, Passenger[][] rightSide, String placeOfDeparture, String destination) {
+    public Bus(Passenger[][] leftSide, Passenger[][] rightSide, String Departure, String destination) {
         this.leftSide = leftSide;
         this.rightSide = rightSide;
-        this.placeOfDeparture = placeOfDeparture;
+        this.departure = Departure;
         this.destination = destination;
     }
 
@@ -38,6 +38,21 @@ public class Bus {
 
     //check if Passenger is on the bus, if yes, delete
     public void deletePassengerReservation(Passenger p) {
-        
+
+    }
+
+    //override the default toString function and give back a nicely formatted passenger list
+    @Override
+    public String toString() {
+    }
+
+    //returns the place of departure
+    public String getDeparture() {
+        return departure;
+    }
+
+    //returns the destination
+    public String getDestination() {
+        return destination;
     }
 }
