@@ -47,6 +47,6 @@ public class Passenger {
     //override the toString function and represent the Passenger object with nicely formatted info about him/her instead
     @Override
     public String toString() {
-        
+
     }
 }
