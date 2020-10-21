@@ -40,7 +40,7 @@ public class Passenger {
 
     //create a new ticket and add it to the array list
     public void createTicket(String date, String departure, String destination) {
-        tickets.add(new Ticket(date, departure, destination));
+        tickets.add(new Ticket(this.name, date, departure, destination));
     }
 
     //override the toString function and represent the Passenger object with nicely formatted info about him/her instead
