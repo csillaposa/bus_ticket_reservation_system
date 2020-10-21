@@ -12,9 +12,7 @@ public class Bus {
     private String destination;
 
     //constructor for the instance variables and arrays
-    public Bus(Passenger[][] leftSide, Passenger[][] rightSide, String Departure, String destination) {
-        this.leftSide = leftSide;
-        this.rightSide = rightSide;
+    public Bus(String Departure, String destination) {
         this.departure = Departure;
         this.destination = destination;
     }
@@ -23,27 +21,74 @@ public class Bus {
 
     //check if there is available seat on the bus
     public boolean checkIfThereIsAvailableSeat() {
-
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 2; j++) {
+                if (leftSide[i][j] == null || rightSide[i][j] == null) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     //reserve the next available seat by placing Passenger p in one of the two arrays
     public void reserveNextAvailableSeat(Passenger p) {
-
+        if (checkIfThereIsAvailableSeat()) {
+            for (int i = 0; i < 20; i++) {
+                for (int j = 0; j < 2; j++) {
+                    if (leftSide[i][j] == null) {
+                        leftSide[i][j] = p;
+                        return;
+                    }
+                    if (rightSide[i][j] == null) {
+                        rightSide[i][j] = p;
+                        return;
+                    }
+                }
+            }
+        }
     }
 
     //delete seat reservation based on the place on the bus
     public void deleteSeatReservation(String side, int row, int seat) {
-
+        if (side == "left") {
+            leftSide[row][seat] = null;
+        } else {
+            rightSide[row][seat] = null;
+        }
     }
 
     //check if Passenger is on the bus, if yes, delete
     public void deletePassengerReservation(Passenger p) {
-
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 2; j++) {
+                if (leftSide[i][j] == p) {
+                    deleteSeatReservation("left", i , j);
+                    return;
+                }
+                if (rightSide[i][j] == p) {
+                    deleteSeatReservation("right", i , j);
+                    return;
+                }
+            }
+        }
     }
 
     //override the default toString function and give back a nicely formatted passenger list
     @Override
     public String toString() {
+        String passengerList = "";
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 2; j++) {
+                passengerList += leftSide[i][j];
+            }
+        }
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 2; j++) {
+                passengerList += rightSide[i][j];
+            }
+        }
+        return passengerList + "\n";
     }
 
     //returns the place of departure
