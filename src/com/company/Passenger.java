@@ -47,6 +47,9 @@ public class Passenger {
     //override the toString function and represent the Passenger object with nicely formatted info about him/her instead
     @Override
     public String toString() {
-
+        return "Passenger information: \n" +
+                "Name: " + getName() + "\n" +
+                "Date of birth: " + getDob() + "\n" +
+                "Address: " + getAddress() + "\n";
     }
 }

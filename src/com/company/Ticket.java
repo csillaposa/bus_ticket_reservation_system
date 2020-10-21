@@ -57,6 +57,11 @@ public class Ticket {
     //overrides the default toString and returns a nicely formatted String info about the ticket
     @Override
     public String toString() {
-        
+        return "Your ticket's details: \n" +
+                "Name: " + getTicketHolder() + "\n" +
+                "Date: " + getDate() + "\n" +
+                "Place of departure: " + getDeparture() + "\n" +
+                "Destination: " + getDestination() + "\n" +
+                "Thank You for traveling with us!";
     }
 }
