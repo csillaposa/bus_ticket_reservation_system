@@ -13,8 +13,7 @@ public class Passenger {
     private String address;
 
     //constructor
-    public Passenger(ArrayList<Ticket> ticketArray, String name, String dob, String address) {
-        this.tickets = ticketArray;
+    public Passenger(String name, String dob, String address) {
         this.name = name;
         this.dob = dob;
         this.address = address;
@@ -41,7 +40,7 @@ public class Passenger {
 
     //create a new ticket and add it to the array list
     public void createTicket(String date, String departure, String destination) {
-
+        tickets.add(new Ticket(date, departure, destination));
     }
 
     //override the toString function and represent the Passenger object with nicely formatted info about him/her instead
