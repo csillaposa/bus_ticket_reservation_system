@@ -3,14 +3,14 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	    Bus bus = new Bus("Győr", "Komárom");
-	    Passenger passenger = new Passenger("Adam", "1993.", "Komarom");
-	    Ticket ticket = new Ticket("Adam", "2020.", "Gyor", "Komarom");
+		TicketSystem sys = new TicketSystem();
 
+		sys.createPassenger("Roger", "1968", "Oslo");
+		sys.createPassenger("Csilla", "1984", "Movar");
 
-		System.out.println(bus.checkIfThereIsAvailableSeat());
-		bus.reserveNextAvailableSeat(passenger);
-		System.out.println(bus.toString());
+		sys.createBus("Oslo", "Madrid");
+		sys.createBus("Stockholm", "Oslo");
 
-    }
+		sys.findPassengerByName("Roger").createTicket("2020", "Oslo", "Madrid");
+	}
 }
