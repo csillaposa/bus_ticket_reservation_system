@@ -23,8 +23,6 @@ public class TicketSystem {
         for (Bus bus : bus) {
             if (bus.getDeparture().equals(departure) && bus.getDestination().equals(destination)) {
                 return bus;
-            } else {
-                System.out.println("There is no bus from " + departure + " to" + destination);
             }
         }
         return null;
@@ -36,7 +34,7 @@ public class TicketSystem {
             if (bus.getDeparture().equals(departure) && bus.getDestination().equals(destination)) {
                 passenger.add(p);
             } else {
-                System.out.println("There is no bus with from " + departure + " to" + destination);
+                System.out.println("There is no bus from " + departure + " to" + destination);
             }
         }
     }
@@ -48,7 +46,7 @@ public class TicketSystem {
                 passenger.remove(p);
                 System.out.println("Passenger " + p + " is removed from the bus from " + departure + " to " + destination);
             } else {
-                System.out.println("There is no bus with from " + departure + " to" + destination);
+                System.out.println("There is no bus from " + departure + " to" + destination);
             }
         }
     }
@@ -61,7 +59,7 @@ public class TicketSystem {
                 System.out.println("Bus ticket reservation from " + departure + " to " + destination + " " + side +
                         " side, " + row + "th row, #" + seat + " seat is cancelled." );
             } else {
-                System.out.println("There is no bus with from " + departure + " to" + destination);
+                System.out.println("There is no bus from " + departure + " to" + destination);
             }
         }
     }
@@ -74,7 +72,7 @@ public class TicketSystem {
                     return true;
                 }
             } else {
-                System.out.println("There is no bus with from " + departure + " to" + destination);
+                System.out.println("There is no bus from " + departure + " to" + destination);
             }
         }
         return false;
@@ -94,12 +92,8 @@ public class TicketSystem {
 
     //finds Passenger and prints tickets from Passenger
     public void printPassengerTickets(String name) {
-        for (Passenger p : passenger) {
-            if (p.getName().equals(name)) {
-
-            } else {
-                System.out.println("No passenger found by the name: " + name);
-            }
+        if (findPassengerByName(name).equals(name)) {
+            System.out.println(passenger.toString());
         }
     }
 
