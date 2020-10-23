@@ -12,8 +12,8 @@ public class Bus {
     private String destination;
 
     //constructor for the instance variables and arrays
-    public Bus(String Departure, String destination) {
-        this.departure = Departure;
+    public Bus(String departure, String destination) {
+        this.departure = departure;
         this.destination = destination;
     }
 
