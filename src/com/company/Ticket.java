@@ -5,16 +5,18 @@ public class Ticket {
     //ticket serial num int that is increased by 1 each time we create a new ticket obj
     //each ticket should have a unique serial num
     //use static
-    private static int serialNumber;
+    private static int count = 0;
 
     //instance variables
     private String ticketHolder;
     private String date;
     private String departure;
     private String destination;
+    private int ID;
 
     //constructor
     public Ticket(String ticketHolder, String date, String departure, String destination) {
+        this.ID = count++;
         this.ticketHolder = ticketHolder;
         this.date = date;
         this.departure = departure;
@@ -54,6 +56,10 @@ public class Ticket {
         this.destination = destination;
     }
 
+    public int getID() {
+        return ID;
+    }
+
     //overrides the default toString and returns a nicely formatted String info about the ticket
     @Override
     public String toString() {
@@ -62,6 +68,7 @@ public class Ticket {
                 "Date: " + getDate() + "\n" +
                 "Place of departure: " + getDeparture() + "\n" +
                 "Destination: " + getDestination() + "\n" +
+                "Serial no: " + getID()  + "\n" +
                 "Thank You for traveling with us!";
     }
 }
