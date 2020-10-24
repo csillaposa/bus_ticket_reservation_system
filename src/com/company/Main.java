@@ -3,35 +3,28 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-		//Create the system
 		TicketSystem sys = new TicketSystem();
 
-		//Create the passengers
-		sys.createPassenger("Roger", "15/06/1968", "Ekraveien 82.");
-		sys.createPassenger("Celine", "05/06/1996", "Karl Johans gate 6.");
+		sys.createBus("Oslo", "Stavanger");
+		sys.createBus("Berlin", "Roma");
 
-		//Create some buses
-		sys.createBus("Oslo", "Madrid");
-		sys.createBus("Stockholm", "Puerto Rico");
+		sys.createPassenger("Adam", "1993", "Komarom");
+		sys.createPassenger("Csilla", "1984", "Gyor");
 
-		//Add a ticket to a passenger and print it
-		sys.findPassengerByName("Roger").createTicket("20/08/2020", "Oslo", "Madrid");
-		sys.findPassengerByName("Roger").createTicket("07/10/2021", "Stockholm", "Puerto Rico");
-		sys.printPassengerTickets("Roger");
+		Passenger p1 = sys.findPassengerByName("Adam");
+		p1.createTicket("2020.11.", "Oslo", "Stavanger");
 
-		sys.addPassengerToBus(sys.findPassengerByName("Roger"), "Oslo", "Madrid");
-		sys.addPassengerToBus(sys.findPassengerByName("Celine"), "Stockholm", "Puerto Rico");
-		sys.addPassengerToBus(sys.findPassengerByName("Roger"), "Stockholm", "Puerto Rico");
+		Passenger p2 = sys.findPassengerByName("Csilla");
+		p2.createTicket("2020.11.", "Oslo", "Stavanger");
+		p2.createTicket("2021.03.", "Berlin", "Roma");
+		sys.printPassengerTickets("Adam");
 
-		System.out.println("Are there available seats from Oslo to Madrid? " + sys.checkAvailability("Oslo", "Madrid"));
+		System.out.println(sys.checkAvailability("Oslo", "Stavanger"));
 
-		System.out.println("Are there available seats from Stockholm to Puerto Rico? " + sys.checkAvailability("Stockholm", "Puerto Rico"));
+		sys.addPassengerToBus(p1, "Oslo", "Stavanger");
+		sys.addPassengerToBus(p2, "Oslo", "Stavanger");
 
-		System.out.println(sys.findBus("Oslo", "Madrid").toString());
-		System.out.println(sys.findBus("Stockholm", "Puerto Rico").toString());
-
-		sys.removePassengerFromBus(sys.findPassengerByName("Roger"), "Stockholm", "Puerto Rico");
-		System.out.println(sys.findBus("Stockholm", "Puerto Rico").toString());
+		sys.printPassengerTickets("Csilla");
 
 	}
 }
