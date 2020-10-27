@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 
-public class TicketSystem {
+public class TicketSystem implements ITicketSystem{
     private ArrayList<Bus> busArrayList = new ArrayList<Bus>();
     private ArrayList<Passenger> passengerArrayList = new ArrayList<Passenger>();
 
