@@ -80,12 +80,16 @@ public class Bus {
         String passengerList = "";
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 2; j++) {
-                passengerList += leftSide[i][j];
+                if (leftSide[i][j] != null) {
+                    passengerList += leftSide[i][j];
+                }
             }
         }
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 2; j++) {
-                passengerList += rightSide[i][j];
+                if (rightSide[i][j] != null) {
+                    passengerList += rightSide[i][j];
+                }
             }
         }
         return passengerList + "\n";
